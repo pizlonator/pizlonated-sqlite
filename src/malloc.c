@@ -14,6 +14,7 @@
 */
 #include "sqliteInt.h"
 #include <stdarg.h>
+#include <stdfil.h>
 
 /*
 ** Attempt to release up to n bytes of non-essential memory currently

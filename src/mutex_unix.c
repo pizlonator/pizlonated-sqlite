@@ -12,6 +12,7 @@
 ** This file contains the C functions that implement mutexes for pthreads
 */
 #include "sqliteInt.h"
+#include <stdfil.h>
 
 /*
 ** The code in this file is only used if we are compiling threadsafe

@@ -42,6 +42,7 @@
 **                                for example.
 */
 #include "sqliteInt.h"
+#include <stdfil.h>
 
 /*
 ** This version of the memory allocator is the default.  It is
