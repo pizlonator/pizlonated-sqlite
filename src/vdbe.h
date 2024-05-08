@@ -45,24 +45,26 @@ struct VdbeOp {
   int p1;             /* First operand */
   int p2;             /* Second parameter (often the jump destination) */
   int p3;             /* The third parameter */
-  union p4union {     /* fourth parameter */
+  struct {     /* fourth parameter */
     int i;                 /* Integer value if p4type==P4_INT32 */
-    void *p;               /* Generic pointer */
-    char *z;               /* Pointer to data for string (char array) types */
-    i64 *pI64;             /* Used when p4type is P4_INT64 */
-    double *pReal;         /* Used when p4type is P4_REAL */
-    FuncDef *pFunc;        /* Used when p4type is P4_FUNCDEF */
-    sqlite3_context *pCtx; /* Used when p4type is P4_FUNCCTX */
-    CollSeq *pColl;        /* Used when p4type is P4_COLLSEQ */
-    Mem *pMem;             /* Used when p4type is P4_MEM */
-    VTable *pVtab;         /* Used when p4type is P4_VTAB */
-    KeyInfo *pKeyInfo;     /* Used when p4type is P4_KEYINFO */
-    u32 *ai;               /* Used when p4type is P4_INTARRAY */
-    SubProgram *pProgram;  /* Used when p4type is P4_SUBPROGRAM */
-    Table *pTab;           /* Used when p4type is P4_TABLE */
+    union {
+      void *p;               /* Generic pointer */
+      char *z;               /* Pointer to data for string (char array) types */
+      i64 *pI64;             /* Used when p4type is P4_INT64 */
+      double *pReal;         /* Used when p4type is P4_REAL */
+      FuncDef *pFunc;        /* Used when p4type is P4_FUNCDEF */
+      sqlite3_context *pCtx; /* Used when p4type is P4_FUNCCTX */
+      CollSeq *pColl;        /* Used when p4type is P4_COLLSEQ */
+      Mem *pMem;             /* Used when p4type is P4_MEM */
+      VTable *pVtab;         /* Used when p4type is P4_VTAB */
+      KeyInfo *pKeyInfo;     /* Used when p4type is P4_KEYINFO */
+      u32 *ai;               /* Used when p4type is P4_INTARRAY */
+      SubProgram *pProgram;  /* Used when p4type is P4_SUBPROGRAM */
+      Table *pTab;           /* Used when p4type is P4_TABLE */
 #ifdef SQLITE_ENABLE_CURSOR_HINTS
-    Expr *pExpr;           /* Used when p4type is P4_EXPR */
+      Expr *pExpr;           /* Used when p4type is P4_EXPR */
 #endif
+    };
   } p4;
 #ifdef SQLITE_ENABLE_EXPLAIN_COMMENTS
   char *zComment;          /* Comment to improve readability */
