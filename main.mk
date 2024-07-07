@@ -1149,3 +1149,5 @@ clean:
 	rm -f lsm.h lsm1.c
 	rm -f threadtest5
 	rm -f src-verify
+	rm -f mksourceid
+
