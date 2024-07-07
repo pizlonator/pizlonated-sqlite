@@ -14,12 +14,12 @@
 #### The toplevel directory of the source tree.  This is the directory
 #    that contains this "Makefile.in" and the "configure.in" script.
 #
-TOP = /Users/pizlo/Programs/llvm-project-deluge/pizlonated-sqlite
+#TOP = /Users/pizlo/Programs/llvm-project-deluge/pizlonated-sqlite
 
 #### C Compiler and options for use in building executables that
 #    will run on the platform that is doing the build.
 #
-BCC = xcrun /Users/pizlo/Programs/llvm-project-deluge/pizlonated-sqlite/../build/bin/clang -O -g  -g -O2
+BCC = xcrun $(TOP)/../build/bin/clang -O -g  -g -O2
 #BCC = /opt/ancic/bin/c89 -0
 
 #### If you want the SQLite library to be safe for use within a 
@@ -65,7 +65,7 @@ EXE =
 #    will run on the target platform.  This is usually the same
 #    as BCC, unless you are cross-compiling.
 #
-TCC = xcrun /Users/pizlo/Programs/llvm-project-deluge/pizlonated-sqlite/../build/bin/clang -O -g  -g -O2
+TCC = xcrun $(TOP)/../build/bin/clang -O -g  -g -O2
 #TCC = gcc -g -O0 -Wall
 #TCC = gcc -g -O0 -Wall -fprofile-arcs -ftest-coverage
 #TCC = /opt/mingw/bin/i386-mingw32-gcc -O6
