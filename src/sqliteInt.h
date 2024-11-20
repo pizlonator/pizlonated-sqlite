@@ -1024,8 +1024,6 @@ typedef INT16_TYPE LogEst;
 # define ROUND8P(x)   (((x)+7)&~7)
 #endif
 
-#define ROUND16(x) (((x)+15)&~15)
-
 /*
 ** Round down to the nearest multiple of 8
 */
