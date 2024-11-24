@@ -93,11 +93,11 @@ SHPREFIX = lib
 #### Linker options needed to link against the TCL library.
 #
 #LIBTCL = -ltcl -lm -ldl
-LIBTCL = 
+LIBTCL = -ltcl -lz
 
 #### Additional objects for SQLite library when TCL support is enabled.
 #TCLOBJ =
-#TCLOBJ = tclsqlite.o
+TCLOBJ = tclsqlite.o
 
 #### Compiler options needed for programs that use the readline() library.
 #
