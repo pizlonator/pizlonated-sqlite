@@ -216,7 +216,7 @@ static int getStmtPointer(
 ** that helps.  If nothing works, a fatal error is generated.
 */
 int sqlite3TestMakePointerStr(Tcl_Interp *interp, char *zPtr, void *p){
-  sqlite3_snprintf(100, zPtr, "%p", p);
+  sqlite3_snprintf(100, zPtr, "%p", encodeExternalPtr(p));
   return TCL_OK;
 }
 
