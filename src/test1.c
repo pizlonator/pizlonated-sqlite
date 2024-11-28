@@ -315,6 +315,10 @@ static int SQLITE_TCLAPI clang_sanitize_address(
 #ifdef __SANITIZE_ADDRESS__
   res = 1;
 #endif
+  /* Fil-C's semantics are kinda like sanitizers, for the purpose of testing. */
+#ifdef __PIZLONATOR_WAS_HERE__
+  res = 1;
+#endif
   if( res==0 && getenv("OMIT_MISUSE")!=0 ) res = 1;
   Tcl_SetObjResult(interp, Tcl_NewIntObj(res));
   return TCL_OK;
