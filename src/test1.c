@@ -54,7 +54,7 @@ static void ensureExternalPtrTable(void){
   if (!externalPtrTable)
     externalPtrTable = zptrtable_new();
 }
-static void* encodeExternalPtr(void* p){
+void* sqlite3EncodeExternalTestPtr(void* p){
   ensureExternalPtrTable();
   return (void*)zptrtable_encode(externalPtrTable, p);
 }
@@ -63,7 +63,7 @@ static void* decodeExternalPtr(void* p){
   return zptrtable_decode(externalPtrTable, (size_t)p);
 }
 #else
-static void* encodeExternalPtr(void* p){
+void* sqlite3EncodeExternalTestPtr(void* p){
   return p;
 }
 static void* decodeExternalPtr(void* p){
@@ -132,7 +132,7 @@ static int SQLITE_TCLAPI get_sqlite_pointer(
     return TCL_ERROR;
   }
   p = (struct SqliteDb*)cmdInfo.objClientData;
-  sqlite3_snprintf(sizeof(zBuf), zBuf, "%p", encodeExternalPtr(p->db));
+  sqlite3_snprintf(sizeof(zBuf), zBuf, "%p", sqlite3EncodeExternalTestPtr(p->db));
   Tcl_AppendResult(interp, zBuf, 0);
   return TCL_OK;
 }
@@ -216,7 +216,7 @@ static int getStmtPointer(
 ** that helps.  If nothing works, a fatal error is generated.
 */
 int sqlite3TestMakePointerStr(Tcl_Interp *interp, char *zPtr, void *p){
-  sqlite3_snprintf(100, zPtr, "%p", encodeExternalPtr(p));
+  sqlite3_snprintf(100, zPtr, "%p", sqlite3EncodeExternalTestPtr(p));
   return TCL_OK;
 }
 
