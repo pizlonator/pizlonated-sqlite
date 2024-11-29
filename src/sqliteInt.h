@@ -4767,6 +4767,7 @@ char *sqlite3VMPrintf(sqlite3*,const char*, va_list);
 #endif
 #if defined(SQLITE_TEST)
   void *sqlite3EncodeExternalTestPtr(void*);
+  void *sqlite3DecodeExternalTestPtr(void*);
   void *sqlite3TestTextToPtr(const char*);
 #endif
 

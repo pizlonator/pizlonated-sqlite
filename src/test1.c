@@ -58,7 +58,7 @@ void* sqlite3EncodeExternalTestPtr(void* p){
   ensureExternalPtrTable();
   return (void*)zptrtable_encode(externalPtrTable, p);
 }
-static void* decodeExternalPtr(void* p){
+void* sqlite3DecodeExternalTestPtr(void* p){
   ensureExternalPtrTable();
   return zptrtable_decode(externalPtrTable, (size_t)p);
 }
@@ -66,7 +66,7 @@ static void* decodeExternalPtr(void* p){
 void* sqlite3EncodeExternalTestPtr(void* p){
   return p;
 }
-static void* decodeExternalPtr(void* p){
+void* sqlite3DecodeExternalTestPtr(void* p){
   return p;
 }
 #endif
@@ -104,7 +104,7 @@ void *sqlite3TestTextToPtr(const char *z){
     v2 = (u32)v;
     memcpy(&p, &v2, sizeof(p));
   }
-  return decodeExternalPtr(p);
+  return sqlite3DecodeExternalTestPtr(p);
 }
 
 
