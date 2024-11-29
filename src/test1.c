@@ -54,19 +54,19 @@ static void ensureExternalPtrTable(void){
   if (!externalPtrTable)
     externalPtrTable = zptrtable_new();
 }
-void* sqlite3EncodeExternalTestPtr(void* p){
+void* sqlite3EncodeExternalTestPtr(void *p){
   ensureExternalPtrTable();
   return (void*)zptrtable_encode(externalPtrTable, p);
 }
-void* sqlite3DecodeExternalTestPtr(void* p){
+void* sqlite3DecodeExternalTestPtr(void *p){
   ensureExternalPtrTable();
   return zptrtable_decode(externalPtrTable, (size_t)p);
 }
 #else
-void* sqlite3EncodeExternalTestPtr(void* p){
+void* sqlite3EncodeExternalTestPtr(void *p){
   return p;
 }
-void* sqlite3DecodeExternalTestPtr(void* p){
+void* sqlite3DecodeExternalTestPtr(void *p){
   return p;
 }
 #endif
