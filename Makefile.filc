@@ -54,6 +54,7 @@ OPTS += -DSQLITE_ENABLE_SELECTTRACE
 OPTS += -DHAVE_MALLOC_H=1
 OPTS += -DHAVE_MALLOC_USABLE_SIZE=1
 OPTS += -DSQLITE_OMIT_LOOKASIDE=1
+OPTS += -DSQLITE_ENABLE_MATH_FUNCTIONS=1
 
 #### The suffix to add to executable files.  ".exe" for windows.
 #    Nothing for unix.
