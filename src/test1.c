@@ -3860,7 +3860,7 @@ static int SQLITE_TCLAPI test_intarray_addr(
       }
     }
   }  
-  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)p));
+  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)sqlite3EncodeExternalTestPtr(p)));
   return TCL_OK;
 }
 /*
@@ -3896,7 +3896,7 @@ static int SQLITE_TCLAPI test_int64array_addr(
       p[i] = v;
     }
   }  
-  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)p));
+  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)sqlite3EncodeExternalTestPtr(p)));
   return TCL_OK;
 }
 /*
@@ -3930,7 +3930,7 @@ static int SQLITE_TCLAPI test_doublearray_addr(
       }
     }
   }  
-  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)p));
+  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)sqlite3EncodeExternalTestPtr(p)));
   return TCL_OK;
 }
 /*
@@ -3963,7 +3963,7 @@ static int SQLITE_TCLAPI test_textarray_addr(
     }
   }
   n = objc-1;
-  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)p));
+  Tcl_SetObjResult(interp, Tcl_NewWideIntObj((uptr)sqlite3EncodeExternalTestPtr(p)));
   return TCL_OK;
 }
 
