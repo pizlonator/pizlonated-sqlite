@@ -38,7 +38,7 @@ THREADLIB =
 #### Specify any extra libraries needed to access required functions.
 #
 #TLIBS = -lrt    # fdatasync on Solaris 8
-TLIBS = -lz
+TLIBS = -lz -lm
 
 #### Leave SQLITE_DEBUG undefined for maximum speed.  Use SQLITE_DEBUG=1
 #    to check for memory leaks.  Use SQLITE_DEBUG=2 to print a log of all
@@ -94,7 +94,7 @@ SHPREFIX = lib
 #### Linker options needed to link against the TCL library.
 #
 #LIBTCL = -ltcl -lm -ldl
-LIBTCL = -ltcl -lz
+LIBTCL = -ltcl -lz -lm
 
 #### Additional objects for SQLite library when TCL support is enabled.
 #TCLOBJ =
